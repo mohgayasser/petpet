@@ -2127,37 +2127,26 @@
 
                         <li>
                             <a
+                                href="/petpet/presentation/views/index-5.jsp">Home</a>
+                        </li>
+                        <li>
+                            <a
                                 href="/petpet/presentation/views/category-fullwidth.jsp">Shop</a>
                         </li>
-                        <li>
-                            <a href="/petpet/presentation/views/product.jsp"
-                                class="sf-with-ul">Product</a>
 
+                        <li>
+                            <a
+                                href="/petpet/presentation/views/about-2.jsp">About</a>
                         </li>
                         <li>
-                            <a href="#">Pages</a>
-                            <ul>
-                                <li>
-                                    <a
-                                        href="/petpet/presentation/views/about-2.jsp">About</a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/petpet/presentation/views/contact-2.jsp">Contact</a>
-                                </li>
-                                <li><a
-                                        href="/petpet/presentation/views/login.jsp">Login</a></li>
-                                <li><a
-                                        href="/petpet/presentation/views/faq.jsp">FAQs</a></li>
-                                <li><a
-                                        href="/petpet/presentation/views/404.html">Error
-                                        404</a></li>
-                                <li><a
-                                        href="/petpet/presentation/views/coming-soon.jsp">Coming
-                                        Soon</a></li>
-                            </ul>
+                            <a
+                                href="/petpet/presentation/views/contact-2.jsp">Contact</a>
                         </li>
-
+                        <li><a
+                                href="/petpet/presentation/views/login.jsp">Login</a></li>
+                        <li><a
+                                href="/petpet/presentation/views/coming-soon.jsp">Coming
+                                Soon</a></li>
 
                     </ul>
                 </nav><!-- End .mobile-nav -->
