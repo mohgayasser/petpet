@@ -1,59 +1,60 @@
 package gov.iti.jets.persistent.entity;
 
-import java.util.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
+@Table(name = "user")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
+    @Column(name = "name", nullable = false)
     private String name;
-    private Date birthday;
+
+    @Column(name = "birthday")
+    private LocalDate birthday;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "job", length = 100)
     private String job;
+
+    @Column(name = "email", length = 100)
     private String email;
 
-    @Column(name = "credit_limit")
-    private int cridetLimit;
+    @Column(name = "credit_limit", precision = 10)
+    private BigDecimal creditLimit;
 
+    @Column(name = "country", length = 100)
     private String country;
+
+    @Column(name = "street", length = 100)
     private String street;
+
+    @Column(name = "city", length = 100)
     private String city;
+
+    @Column(name = "phone", length = 100)
     private String phone;
-    private String ZIP;
 
-    public User() {
-    }
+    @Column(name = "ZIP", length = 100)
+    private String zip;
 
-    public User(int id, String name, Date birthday, String password, String job, String email, int cridetLimit,
-            String country, String street, String city, String phone, String zIP) {
-        this.id = id;
-        this.name = name;
-        this.birthday = birthday;
-        this.password = password;
-        this.job = job;
-        this.email = email;
-        this.cridetLimit = cridetLimit;
-        this.country = country;
-        this.street = street;
-        this.city = city;
-        this.phone = phone;
-        ZIP = zIP;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -65,11 +66,11 @@ public class User {
         this.name = name;
     }
 
-    public Date getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 
@@ -97,12 +98,12 @@ public class User {
         this.email = email;
     }
 
-    public int getCridetLimit() {
-        return cridetLimit;
+    public BigDecimal getCreditLimit() {
+        return creditLimit;
     }
 
-    public void setCridetLimit(int cridetLimit) {
-        this.cridetLimit = cridetLimit;
+    public void setCreditLimit(BigDecimal creditLimit) {
+        this.creditLimit = creditLimit;
     }
 
     public String getCountry() {
@@ -137,12 +138,12 @@ public class User {
         this.phone = phone;
     }
 
-    public String getZIP() {
-        return ZIP;
+    public String getZip() {
+        return zip;
     }
 
-    public void setZIP(String zIP) {
-        ZIP = zIP;
+    public void setZip(String zip) {
+        this.zip = zip;
     }
 
 }

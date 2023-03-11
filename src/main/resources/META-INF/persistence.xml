@@ -7,10 +7,10 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>gov.iti.jets.persistent.entity.User</class>
         <properties>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/petpet"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/helloworlddb"/>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
-            <property name="jakarta.persistence.jdbc.password" value=""/>
+            <property name="jakarta.persistence.jdbc.password" value="root"/>
         </properties>
     </persistence-unit>
 </persistence>

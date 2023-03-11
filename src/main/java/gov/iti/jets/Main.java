@@ -15,7 +15,7 @@ public class Main {
 
         u.setName("ooo");
         
-        u.setId(10);
+       
 
         em.merge(u);
 
