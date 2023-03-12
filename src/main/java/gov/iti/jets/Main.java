@@ -14,6 +14,7 @@ public class Main {
         User u = new User();
 
         u.setName("ooo");
+      
         
        
 
