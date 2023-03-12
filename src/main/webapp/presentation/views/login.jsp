@@ -25,6 +25,8 @@
     <meta name="theme-color" content="#ffffff">
     <!-- Plugins CSS File -->
     <link rel="stylesheet" href="/petpet/presentation/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/petpet/presentation/assets/css/bootstrap-select-country.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <!-- Main CSS File -->
     <link rel="stylesheet" href="/petpet/presentation/assets/css/style.css">
 </head>
@@ -648,8 +650,8 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <label for="register-password-1">Password *</label>
-                                                <input type="password" class="form-control is-valid" id="register-password-1"
-                                                    name="register-password-1" required="">
+                                                <input type="password" class="form-control" id="register-password-1"
+                                                    name="register-password-1"  onblur="checkPassword()" required>
                                                     
                                                     <div class="invalid-feedback">Must be 8-20 characters long.</div>
                                                 <!-- <div class="valid-feedback">Please provide a valid city.</div> -->
@@ -657,9 +659,9 @@
                                             </div><!-- End .form-group -->
 
                                             <div class="col-sm-6">
-                                                <label for="register-password-2">Confirm Password *</label>
+                                                <label for="register-password-confirm">Confirm Password *</label>
                                                 <input type="password" class="form-control"
-                                                    id="register-password-2" name="register-password-2" required="">
+                                                    id="register-password-confirm" name="register-password-confirm"  onblur="checkMatchPassword()" required>
                                                 
                                                     <div class="invalid-feedback">Password doesn't match</div>
                                             </div><!-- End .form-group -->
@@ -670,9 +672,9 @@
                                     
 
                                             <div class="col-sm-6">
-                                                <label for="register-phone-2">Phone *</label>
-                                                <input type="tel" class="form-control is-invalid" id="register-phone-2"
-                                                    name="register-email" required="">
+                                                <label for="register-phone">Phone *</label>
+                                                <input type="tel" class="form-control" id="register-phone"
+                                                    name="register-phone" onblur="checkPhone()" required>
                                                 <div class="invalid-feedback">Invalid Phone Number</div>
                                             </div>
 
@@ -687,39 +689,41 @@
 
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <label for="register-job-2">Job *</label>
-                                                <input type="text" class="form-control" id="register-job-2"
-                                                    name="register-job" required="">
+                                                <label for="register-job">Job *</label>
+                                                <input type="text" class="form-control" id="register-job"
+                                                    name="register-job" onblur="checkJob()" required="">
                                             </div>
 
                                             <div class="col-sm-6">
-                                                <label for="register-credit-2">Credit Limit *</label>
-                                                <input type="number" class="form-control" min="100" max="5000" step="10" name="register-credit-2" id="register-credit" required>
-
+                                                <label for="register-credit">Credit Limit *</label>
+                                                <input type="number" class="form-control" min="100" max="5000" step="10" name="register-credit"
+                                                 id="register-credit" onblur="checkCredit()" required>
+                                                 <div class="invalid-feedback">Please enter a value</div>
                                             </div>
 
                                         </div>
                                         <div class="row">
 
                                             <div class="col-sm-4">
-                                                <label for="register-phone-2">Street *</label>
-                                                <input type="tel" class="form-control" id="register-phone-2"
-                                                    name="register-email" required="">
-                                                <div class="invalid-feedback">Invalid Phone Number</div>
+                                                <label for="register-street">Street *</label>
+                                                <input type="text" class="form-control" id="register-street"
+                                                    name="register-street" onblur="checkStreet()" required="">
+                                                <div class="invalid-feedback">Please enter a value</div>
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="register-phone-2">City *</label>
-                                                <input type="tel" class="form-control" id="register-phone-2"
-                                                    name="register-email" required="">
-                                                <div class="invalid-feedback">Invalid Phone Number</div>
+                                                <label for="register-city">City *</label>
+                                                <input type="text" class="form-control" id="register-city"
+                                                    name="register-city" onblur="checkCity()" required="">
+                                                <div class="invalid-feedback">Please enter a value</div>
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="register-phone-2">Country *</label>
-                                                <input type="tel" class="form-control" id="register-phone-2"
-                                                    name="register-email" required="">
-                                                <div class="invalid-feedback">Invalid Phone Number</div>
+                                                <label for="register-country">Country *</label>
+                                                <!-- <select class="form-control" id="register-country" ></select> -->
+                                                <input type="text" name="register-country" id="register-country" class="form-control"
+                                                    onblur="checkCountry()" required>
+                                                <div class="invalid-feedback">Please enter a value</div>
                                             </div>
 
                                         </div>
@@ -727,7 +731,7 @@
                                     
 
                                         <div class="form-footer">
-                                            <button type="submit" class="btn btn-outline-primary-2">
+                                            <button type="button" onclick="registerUser()" class="btn btn-outline-primary-2">
                                                 <span>SIGN UP</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </button>
@@ -1114,6 +1118,8 @@
     <script src="/petpet/presentation/assets/js/jquery.waypoints.min.js"></script>
     <script src="/petpet/presentation/assets/js/superfish.min.js"></script>
     <script src="/petpet/presentation/assets/js/owl.carousel.min.js"></script>
+    <script src="/petpet/presentation/assets/js/bootstrap-select-country.min.js"></script>
+    <script src="/petpet/presentation/assets/js/bootstrap-select-country.js"></script>
     <!-- Main JS File -->
     <script src="/petpet/presentation/assets/js/main.js"></script>
     <script src="/petpet/presentation/assets/register-form.js"></script>

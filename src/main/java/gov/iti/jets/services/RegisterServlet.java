@@ -19,14 +19,18 @@ public class RegisterServlet extends HttpServlet{
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
-        String fName ="kemo";//= req.getParameter("Name");
-        String userName = req.getParameter("Username");
-        System.out.println(userName);
-        userInfo.add(fName);
-        userInfo.add(userName);
-        resp.setContentType("application/json");
-        resp.getWriter().write("data: " + new Gson().toJson(userInfo) + "\n\n");
+
+        Gson gson = new Gson();
+
+         String fName =req.getParameter("firstName");
+        System.out.println( "fname " + fName);
+        // String userName = req.getParameter("Username");
+
+        // System.out.println(userName);
+        // userInfo.add(fName);
+        // userInfo.add(userName);
+        // resp.setContentType("application/json");
+        // resp.getWriter().write("data: " + new Gson().toJson(userInfo) + "\n\n");
     }
 }
 
