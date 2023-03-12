@@ -1,30 +1,25 @@
 package gov.iti.jets;
 
+import gov.iti.jets.persistent.dao.RepositoryImpl;
 import gov.iti.jets.persistent.entity.User;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
+
 
 public class Main {
     public static void main(String[] args) {
-        EntityManagerFactory ef = Persistence.createEntityManagerFactory("default");
-        EntityManager em = ef.createEntityManager();
-
-
+       
         User u = new User();
 
-        u.setName("ooo");
-      
-        
-       
+        u.setName("ooo222");
 
-        em.merge(u);
+        RepositoryImpl<User,Integer> impl = new RepositoryImpl<>(User.class);
+        User us = impl.find(6);
 
-        em.getTransaction().begin();
+        impl.remove(us);
 
-        em.persist(u);
+        // us.setName("mohga");
 
-        em.getTransaction().commit();
+        // impl.update(us);
+        // System.out.println(impl.findAll());
         
     }
 }

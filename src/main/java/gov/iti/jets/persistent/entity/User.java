@@ -147,4 +147,13 @@ public class User {
         this.zip = zip;
     }
 
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", name=" + name + ", birthday=" + birthday + ", password=" + password + ", job="
+                + job + ", email=" + email + ", creditLimit=" + creditLimit + ", country=" + country + ", street="
+                + street + ", city=" + city + ", phone=" + phone + ", zip=" + zip + "]";
+    }
+
+    
+
 }
