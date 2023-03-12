@@ -6,9 +6,8 @@ import jakarta.persistence.*;
 @Table(name = "cart")
 public class Cart {
     @Id
-    @Column(name = "cart_id")
+    @Column(name = "cart_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)

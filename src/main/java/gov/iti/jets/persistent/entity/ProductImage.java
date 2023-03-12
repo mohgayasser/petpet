@@ -5,19 +5,24 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "product_images")
 public class ProductImage {
-    @EmbeddedId
-    private ProductImageId id;
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    @MapsId("productId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "product_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
     private Product product;
 
-    public ProductImageId getId() {
+    @Lob
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(ProductImageId id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -27,6 +32,14 @@ public class ProductImage {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
 }
