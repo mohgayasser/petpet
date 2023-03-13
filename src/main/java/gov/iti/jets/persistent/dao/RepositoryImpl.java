@@ -10,8 +10,8 @@ public class RepositoryImpl<E, K> implements Repository<E, K> {
     private EntityManager _entityManager;
     private Class<E> type;
 
-
-    public RepositoryImpl(){}
+    public RepositoryImpl() {
+    }
 
     public RepositoryImpl(Class<E> e) {
         _entityManager = EntityHandler.getEntityManager();
@@ -29,7 +29,7 @@ public class RepositoryImpl<E, K> implements Repository<E, K> {
             _entityManager.getTransaction().rollback();
             throw ex;
         }
-       
+
         return e;
     }
 
@@ -42,8 +42,7 @@ public class RepositoryImpl<E, K> implements Repository<E, K> {
     @Override
     public List<E> findAll() {
 
-        List<E> list =(List<E>) _entityManager.createQuery("FROM "+ type.getName() +" ").getResultList();
-            
+        List<E> list = (List<E>) _entityManager.createQuery("FROM " + type.getName() + " ").getResultList();
 
         return list;
     }
@@ -54,7 +53,7 @@ public class RepositoryImpl<E, K> implements Repository<E, K> {
             _entityManager.getTransaction().begin();
             _entityManager.remove(e);
             _entityManager.getTransaction().commit();
-            
+
         } catch (Exception ex) {
             _entityManager.getTransaction().rollback();
             throw ex;
@@ -69,7 +68,7 @@ public class RepositoryImpl<E, K> implements Repository<E, K> {
             _entityManager.getTransaction().begin();
             _entityManager.merge(e);
             _entityManager.getTransaction().commit();
-            
+
         } catch (Exception ex) {
             _entityManager.getTransaction().rollback();
             throw ex;

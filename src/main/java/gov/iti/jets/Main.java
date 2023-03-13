@@ -1,25 +1,27 @@
 package gov.iti.jets;
 
 import gov.iti.jets.persistent.dao.RepositoryImpl;
+import gov.iti.jets.persistent.entity.Category;
+import gov.iti.jets.persistent.entity.Product;
 import gov.iti.jets.persistent.entity.User;
-
 
 public class Main {
     public static void main(String[] args) {
-       
-        User u = new User();
 
-        u.setName("ooo222");
+        RepositoryImpl<Category, Integer> implC = new RepositoryImpl<>(Category.class);
 
-        RepositoryImpl<User,Integer> impl = new RepositoryImpl<>(User.class);
-        User us = impl.find(6);
+        Category cat = new Category();
+        cat.setId(1);
 
-        impl.remove(us);
+        RepositoryImpl<Product, Integer> impl = new RepositoryImpl<>(Product.class);
+        Product p = new Product();
+        p.setName("Fdsf");
+        p.setCategory(cat);
+        impl.create(p);
 
-        // us.setName("mohga");
+        // User us = impl.find(7);
 
-        // impl.update(us);
-        // System.out.println(impl.findAll());
-        
+        // System.out.println(us);
+
     }
 }

@@ -32,7 +32,7 @@
 									<div class="col-sm-6">
 										
 											<label>Category Name</label>
-										<select class="form-control">
+										<select class="form-control" name="category">
 											<option>1</option>
 											<option>2</option>
 											<option>3</option>

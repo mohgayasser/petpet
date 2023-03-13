@@ -45,4 +45,11 @@ public class Category {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Category [id=" + id + ", parentId=" + parentId + ", name=" + name + "]";
+    }
+
+    
+
 }

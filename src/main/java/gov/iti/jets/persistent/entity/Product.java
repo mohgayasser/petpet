@@ -3,6 +3,8 @@ package gov.iti.jets.persistent.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -16,9 +18,9 @@ public class Product {
     private String name;
 
     @Column(name = "price", precision = 10)
-    private BigDecimal price;
+    private Double price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.REFRESH)
     @JoinColumn(name = "category_id")
     private Category category;
 
@@ -28,6 +30,18 @@ public class Product {
     @Lob
     @Column(name = "description")
     private String description;
+
+
+    @OneToMany(mappedBy = "product" ,fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
+    List<ProductImage> images = new ArrayList<>();
+
+    public List<ProductImage> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ProductImage> images) {
+        this.images = images;
+    }
 
     public Integer getId() {
         return id;
@@ -45,11 +59,11 @@ public class Product {
         this.name = name;
     }
 
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -76,5 +90,14 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "Product [id=" + id + ", name=" + name + ", price=" + price + ", category=" + category + ", quantity="
+                + quantity + ", description=" + description + ", images=" + images + "]";
+    }
+
+
+    
 
 }
