@@ -20,7 +20,7 @@
 			<div class="checkout">
 				<div class="container">
 
-					<form action="#" method enctype="multipart/form-data">
+					<form action="/petpet/add-product" method="POST"  enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-lg-9">
 								<h2 class="checkout-title">Product Details</h2><!-- End .checkout-title -->
@@ -73,7 +73,6 @@
 								  <input onclick="upload_files()" type="button" class="btn btn-primary" name='submit_image' value="Upload Multiple Image"/>
 								  <input onclick="return resetForm();" type="reset" class="btn btn-danger" name='reset_images' value="Reset"/>
 								</div>
-						
 							</div>
 							<hr>
 							<div class="row" id="image_preview"></div>
