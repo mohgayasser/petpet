@@ -1,20 +1,47 @@
-package gov.iti.jets.models;
+package gov.iti.jets.persistent.dto;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class User {
+public class UserDTO {
+    int id;
+    
     String name;
     String email;
     String phone;
     String password;
     String job;
-    String creditLimit;
+    BigDecimal creditLimit;
     String country;
     String street;
     String zip;
     String city;
     LocalDate birthday;
+
     
+    
+    public UserDTO(String name, String email, String phone, String password, String job, BigDecimal creditLimit,
+            String country, String street, String zip, String city, LocalDate birthday) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+        this.job = job;
+        this.creditLimit = creditLimit;
+        this.country = country;
+        this.street = street;
+        this.zip = zip;
+        this.city = city;
+        this.birthday = birthday;
+    }
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -45,10 +72,10 @@ public class User {
     public void setJob(String job) {
         this.job = job;
     }
-    public String getCreditLimit() {
+    public BigDecimal getCreditLimit() {
         return creditLimit;
     }
-    public void setCreditLimit(String creditLimit) {
+    public void setCreditLimit(BigDecimal creditLimit) {
         this.creditLimit = creditLimit;
     }
     public String getCountry() {

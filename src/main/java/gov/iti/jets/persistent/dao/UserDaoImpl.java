@@ -6,14 +6,19 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class UserImpl implements UserDao {
+public class UserDaoImpl implements UserDao {
     EntityManagerFactory ef = Persistence.createEntityManagerFactory("default");
     EntityManager em = ef.createEntityManager();
     
 
     @Override
-    public User create() {
-        return null;
+    public User create(User user) {
+
+        em.getTransaction().begin();
+        em.persist(user);
+        System.out.println("User added");
+        em.getTransaction().commit();
+        return user;
     }
 
 
